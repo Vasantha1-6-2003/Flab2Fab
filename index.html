@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <style>
+     body {
+            background-image: url('yoga1 (1).jpeg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family:cursive;
+            font-size: 20px;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Align items vertically */
+            min-height: 100vh;
+        }
+    h1 {
+            color: #000;
+            font-size: 2em;
+            margin-bottom: 20px;
+            /* flex: 1 1 100%; */
+        }
+        .radio{
+            text-align: left;
+            margin-left: 125px;
+        }
+  
+    .quiz-card {
+      display: none;
+      width: 400px;
+      height: 400px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .quiz-card.active {
+      display: block;
+      background-color:rgb(247, 223, 127);
+    }
+
+    .quiz-card-header {
+      background-color: black;
+      color: #fff;
+      padding: 10px;
+    }
+
+    .quiz-card-content {
+      padding: 20px;
+      font-family: 'Quicksand', sans-serif;
+    
+     
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .submit-btn {
+       margin-top: 40px;
+      background-color: black;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 48%; /* Adjust the width as needed */
+    }
+    
+  </style>
+
+</head>
+
+<body>
+<h1>FLAB2FAB</h1>
+    
+  <div class="quiz-card active" id="card1" >
+    <div class="quiz-card-header">
+      <h2>Question 1</h2>
+    </div>
+    <div class="quiz-card-content">
+      <p>What is your age?</p>
+      <div class="radio">
+        <input type="radio" name="q1" placeholder="Your answer..."required>1yr-19yrs
+        <br>
+        <input type="radio" name="q1" placeholder="Your answer..."required>20yrs-35yrs
+        <br>
+        <input type="radio" name="q1" placeholder="Your answer..."required>36yrs-50yrs
+        <br>
+        <input type="radio" name="q1" placeholder="Your answer..."required>51yrs-70yrs
+        <br>
+        <input type="radio" name="q1" placeholder="Your answer..."required>above 70
+        <br>
+      </div>
+      
+    </div>
+    <div class="btn-container"> <button  style=" margin-top: 34px;" class="submit-btn" onclick="nextCard('card2')">Next</button></div>
+   
+  </div>
+
+  <div class="quiz-card" id="card2">
+    <div class="quiz-card-header">
+      <h2>Question 2</h2>
+    </div>
+    <div class="quiz-card-content">
+      <p>Your gender?</p>
+      <div class="radio">
+        <input type="radio" name="q2" placeholder="Your answer..."required>Female
+        <br>
+        <input type="radio" name="q2" placeholder="Your answer..."required>Male
+        <br>
+      </div>
+      
+    </div>
+    <div class="btn-container"><button class="submit-btn" onclick="prevCard('card1')">Previous</button>
+      <button style=" margin-top: 101px;" class="submit-btn" onclick="nextCard('card3')">Next</button></div>
+    
+    
+  </div>
+
+  <div class="quiz-card" id="card3">
+    <div class="quiz-card-header">
+      <h2>Question 3</h2>
+    </div>
+    <div class="quiz-card-content">
+      <p>Your height?(in cm)</p>
+      <input type="number" name="q3" placeholder="Your answer..."required>
+    </div>
+    <div class="btn-container"><button class="submit-btn" onclick="prevCard('card2')">Previous</button>
+      <button style=" margin-top: 126px;" class="submit-btn" onclick="nextCard('card4')">Next</button></div>
+    
+  </div>
+  <div class="quiz-card" id="card4">
+    <div class="quiz-card-header">
+      <h2>Question 4</h2>
+    </div>
+    <div class="quiz-card-content">
+      <p>Your weight?(in kg)</p>
+      <input type="number" name="q4" placeholder="Your answer..."required>
+    </div>
+    <div class="btn-container"><button class="submit-btn" onclick="prevCard('card3')">Previous</button>
+      <button style=" margin-top: 120px;" class="submit-btn" onclick="nextCard('card5')">Next</button></div>
+    
+  </div>
+  <div class="quiz-card" id="card5">
+    <div class="quiz-card-header">
+      <h2>Question 5</h2>
+    </div>
+    <div class="quiz-card-content">
+      <p>How many servings of fruits and vegetables do you eat each day?</p>
+      <input type="number" name="q5" placeholder="Your answer..."required>
+    </div>
+    <div class="btn-container"><button class="submit-btn" onclick="prevCard('card4')">Previous</button>
+      <button style=" margin-top: 100px;"class="submit-btn" onclick="nextCard('card6')">Next</button></div>
+    
+  </div>
+  <div class="quiz-card" id="card6">
+    <div class="quiz-card-header">
+      <h2>Question 6</h2>
+    </div>
+    <div class="quiz-card-content">
+      <p>How many servings of processed foods do you eat each day?</p>
+      <input type="number" name="q6" placeholder="Your answer..." required>
+    </div>
+    <div class="btn-container"><button class="submit-btn" onclick="prevCard('card5')">Previous</button>
+      <button style=" margin-top: 100px;" class="submit-btn" onclick="nextCard('card7')">Next</button></div>
+    
+  </div>
+  <div class="quiz-card" id="card7">
+    <div class="quiz-card-header">
+      <h2>Question 7</h2>
+    </div>
+    <div class="quiz-card-content">
+      <p>How many times per week do you exercise for at least 30 minutes?</p>
+      <input type="number" name="q7" placeholder="Your answer..." required>
+    </div>
+    <div class="btn-container"><button class="submit-btn" onclick="prevCard('card6')">Previous</button>
+      <button style=" margin-top: 100px;" class="submit-btn" onclick="nextCard('card8')">Next</button></div>
+    
+  </div>
+  <div class="quiz-card" id="card8">
+    <div class="quiz-card-header">
+      <h2>Question 8</h2>
+    </div>
+    <div class="quiz-card-content">
+      <p>Do you have any family history of obesity?</p>
+      <div class="radio">
+        <input type="radio" name="q8" placeholder="Your answer..." required>yes
+        <br>
+        <input type="radio" name="q8" placeholder="Your answer..." required>no
+        <br>
+        <input type="radio" name="q8" placeholder="Your answer..."required>unsure
+        <br>
+      </div>
+      
+    </div>
+    <div class="btn-container"> <button class="submit-btn" onclick="prevCard('card7')">Previous</button>
+      <button style=" margin-top: 56px;" class="submit-btn" onclick="nextCard('card9')">Next</button></div>
+   
+  </div>
+  <div class="quiz-card" id="card9">
+    <div class="quiz-card-header">
+      <h2>Question 9</h2>
+    </div>
+    <div class="quiz-card-content">
+      <p>Do you have any other health conditions that may contribute to your weight?</p>
+      <input type="text" id="question9" name="question9">
+    </div>
+    <div class="btn-container"><button class="submit-btn" onclick="prevCard('card8')">Previous</button>
+      <button style=" margin-top: 101px;" class="submit-btn" onclick="nextCard('card10')">Next</button></div>
+    
+  </div>
+  <div class="quiz-card" id="card10">
+    <div class="quiz-card-header">
+      <h2>Question 10</h2>
+    </div>
+    <div class="quiz-card-content">
+      <p>Do you consume alcohol?</p>
+      <div class="radio">
+        <input type="radio" name="q10" placeholder="Your answer..." required>yes
+        <br>
+        <input type="radio" name="q10" placeholder="Your answer..."required>no
+        <br>
+      </div>
+      
+    </div>
+    <div class="btn-container"><button class="submit-btn" onclick="prevCard('card9')">Previous</button>
+      <button style=" margin-top: 103px;"class="submit-btn" onclick="nextCard('card11')">Next</button></div>
+    
+
+  </div>
+  <div class="quiz-card" id="card11">
+    <div class="quiz-card-header">
+      <h2>Question 11</h2>
+    </div>
+    <div class="quiz-card-content">
+      <p>How many hours do you sleep in a day?</p>
+      <input type="number" name="q11" placeholder="Your answer..." required>
+      
+    </div>
+    <div class="btn-container"><button class="submit-btn" onclick="prevCard('card10')">Previous</button>
+      <button style=" margin-top: 126px;"class="submit-btn" onclick="nextCard('card12')">Next</button></div>
+    
+
+  </div>
+  <div class="quiz-card" id="card12">
+    <div class="quiz-card-header">
+      <h2>Question 12</h2>
+    </div>
+    <div class="quiz-card-content">
+      <p>Have you been sick in last 20 days?</p>
+      <div class="radio">
+        <input type="radio" name="q10" placeholder="Your answer..." >yes
+        <br>
+        <input type="radio" name="q10" placeholder="Your answer...">no
+        <br>
+      </div>
+      
+      
+    </div>
+    <div class="btn-container"><button class="submit-btn" onclick="prevCard('card11')">Previous</button>
+      <button style=" margin-top: 100px;"class="submit-btn" ><a href="popup.html" style="color: white;
+        text-decoration: none;">Submit</a></button></div>
+    
+  
+  </div>
+  
+</div>
+<div id="resultCard" class="result-card"></div>
+<script>
+    function showCard(cardId) {
+      document.querySelectorAll('.quiz-card').forEach(card => {
+        card.classList.remove('active');
+      });
+  
+      document.getElementById(cardId).classList.add('active');
+    }
+  
+    function nextCard(currentCardId) {
+      var currentCardNumber = parseInt(currentCardId.replace('card', ''));
+      var nextCardNumber = currentCardNumber ;
+  
+      // Show the next card if it exists
+      var nextCardId = 'card' + nextCardNumber;
+      if (document.getElementById(nextCardId)) {
+        showCard(nextCardId);
+      } else {
+        submitQuiz();
+      }
+    }
+  
+    function prevCard(currentCardId) {
+      var currentCardNumber = parseInt(currentCardId.replace('card', ''));
+      var prevCardNumber = currentCardNumber ;
+  
+      // Show the previous card if it exists
+      var prevCardId = 'card' + prevCardNumber;
+      if (document.getElementById(prevCardId)) {
+        showCard(prevCardId);
+      }
+    }
+  
+   
+     
+     
+    
+    
+    
+  </script>
+  
+
+</body>
+</html>

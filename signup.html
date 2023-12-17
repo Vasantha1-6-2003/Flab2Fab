@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>User Login Card</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-image: url('yoga1\ \(1\).jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        header {
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    width: 100%;
+    height: 150px;
+    top: 0;
+    z-index: 1;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.nav-links li {
+    margin-right: 20px;
+    justify-content: space-evenly;
+    
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.nav-links a:hover {
+    color: #ffd700;
+}
+        .card {
+            width: 300px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+    </style>
+</head>
+<body style="background-color:rgb(247, 223, 127);">
+    <header>
+        <nav>  
+              <div class="logo">
+                  
+              <h1 style="text-align: center; font-size: 60px; color:antiquewhite">Flab2Fab</h1>
+              <ul class="nav-links">
+                  <li><a href="aboutUs.html">About us</a></li>
+                  <li><a href="video.html">Videos</a></li>
+                  <li><a href="foods.html">Food Chart</a></li>
+                  <li><a href="signup.html">Sign Up</a></li>
+              </ul>
+          </nav>
+      </header>
+    <form onsubmit="performLogin(event)">
+        <div class="card">
+            <h2>User Login</h2>
+            <div class="input-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" placeholder="Enter your username">
+            </div>
+            <div class="input-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" placeholder="Enter your password">
+            </div>
+            <button type="submit"><a href="index.html" style="color: #f0f0f0; text-decoration: none;">Login</a></button>
+        </div>
+    </form>
+
+    <script>
+       
+       function performLogin(event) {
+            event.preventDefault();
+
+            const hsLoginBaseUrl =  function performLogin(event) {
+            event.preventDefault();
+
+            const hsLoginBaseUrl = 'https://example.com'; // Replace with your actual base URL
+            const hospitalCode = 'exampleHospital'; // Replace with the hospital code
+            const clientId = 'yourClientId'; // Replace with your client ID
+            const clientSecret = 'yourClientSecret'; // Replace with your client secret
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            const apiUrl = `${hsLoginBaseUrl}/oauth/token?grant_type=password&username=${username}&password=${password}&hospCode=${hospitalCode}&client_secret=${clientSecret}&client_id=${clientId}`;
+
+            fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Login successful:', data);
+                // Redirect the user to another page
+                window.location.href = 'index.html';
+            })
+            .catch(error => {
+                console.error('Login failed:', error);
+                // You can display an error message to the user or perform other error-handling actions
+            });
+        }; // Replace with your actual base URL
+            
+        }
+</script>
+
+    
+</body>
+</html>
